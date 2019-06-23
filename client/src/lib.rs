@@ -90,14 +90,14 @@ pub fn run() -> Promise {
                 _dates_distribution.insert(date.to_string(), distribution);
             }
 
-            let reportingResult: ReportingResults = ReportingResults{
+            let reporting_result: ReportingResults = ReportingResults{
                 distribution: _dates_distribution,
                 most_common: _dates_most_common,
                 average: _dates_averages
             };
 
             // Send the `Branch` struct back to JS as an `Object`.
-            future::ok(JsValue::from_serde(&reportingResult).unwrap())
+            future::ok(JsValue::from_serde(&reporting_result).unwrap())
         });
 
     // Convert this Rust `Future` back into a JS `Promise`.
